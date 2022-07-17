@@ -103,7 +103,7 @@ namespace activityRecognition {
 
     // collects first 0.1sec * 19 data points from start point
     //% block
-    export function start(){
+    export function startTracker(){
         for (let index = 0; index < 19; index++) {
             rawX.push(input.acceleration(Dimension.X))
             rawY.push(input.acceleration(Dimension.Y))
@@ -114,7 +114,7 @@ namespace activityRecognition {
 
     //  every 0.1 sec: collect acceleration data, update
     //% block
-    export function updateActivity(): string {
+    export function findActivity(): string {
         rawX.push(input.acceleration(Dimension.X))
         rawY.push(input.acceleration(Dimension.Y))
         rawZ.push(input.acceleration(Dimension.Z))

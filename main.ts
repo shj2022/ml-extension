@@ -1,15 +1,24 @@
+input.onButtonPressed(Button.A, function () {
+    activity_tracker_on = false
+    datalogger.deleteLog()
+})
+input.onButtonPressed(Button.B, function () {
+    basic.showNumber(activity_level)
+})
 let activity_level = 0
-activityRecognition.start()
-let on = true
-for (let index = 0; index < 10; index++) {
-    if (activityRecognition.updateActivity() == "s") {
+let activity_tracker_on = false
+activity_tracker_on = false
+activityRecognition.startTracker()
+activity_tracker_on = true
+while (activity_tracker_on) {
+    datalogger.log(datalogger.createCV("activity", activityRecognition.findActivity()))
+    if (activityRecognition.findActivity() == "s") {
         activity_level += 1
     }
-    if (activityRecognition.updateActivity() == "w") {
+    if (activityRecognition.findActivity() == "w") {
         activity_level += 2
     }
-    if (activityRecognition.updateActivity() == "r") {
+    if (activityRecognition.findActivity() == "r") {
         activity_level += 3
     }
 }
-basic.showNumber(activity_level)
