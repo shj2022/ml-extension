@@ -5,7 +5,8 @@
 ## Step 1
 
 In this tutorial, we will use the activity recognition program to code a program that detects your activity level.
-In the ``||ActivityRecognition||`` tab, you will
+On the screen are the control statements in which you will put code blocks. 
+
 ```template
 input.onButtonPressed(Button.A, function () {
 })
@@ -18,6 +19,9 @@ basic.forever(function () {
 ```
 
 ## Step 2
+The program continuously predicts the current activity for you and stores it in the ``||activityRecognition:find_activity||`` block. 
+In the ``||Activity Recognition||`` tab, you will
+
 We want the ``||variables: step||`` count to increase by 1 every time you take a step. To accurately do that, we will use the ``||moveSMART:acceleration_strength||`` value in the moveSMART tab.
 
 ## Step 3
