@@ -120,13 +120,13 @@ namespace activityRecognition {
             rawZ.removeAt(0)}}
     )
 
-    loops.everyInterval(1000, function () {
+    /*loops.everyInterval(1000, function () {
         datalogger.log(datalogger.createCV("activity type", current_activity), datalogger.createCV("current activity level", activity_level))
     })
 
     datalogger.onLogFull(function () {
         datalogger.deleteLog(datalogger.DeleteType.Full)
-    })
+    })*/
 
     //  every 0.1 sec: collect acceleration data, update
     //% block
