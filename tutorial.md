@@ -5,18 +5,15 @@
 ## Step 1
 
 In this tutorial, we will use the activity recognition program to code a program that detects your activity level.
+In the ``||ActivityRecognition||`` tab, you will
 ```template
-let counting = false
-let step = 0
 input.onButtonPressed(Button.A, function () {
-    counting = true
 })
 input.onButtonPressed(Button.B, function () {
-    counting = false
+})
+input.onButtonPressed(Button.AB, function () {
 })
 basic.forever(function () {
-if(counting){
-}
 })
 ```
 
