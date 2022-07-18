@@ -101,38 +101,65 @@ namespace activityRecognition {
         return _py.py_array_index(count, maximum(count))
     }
 
+    control.inBackground(() => {
+        for (let index = 0; index < 19; index++) {
+            rawX.push(input.acceleration(Dimension.X))
+            rawY.push(input.acceleration(Dimension.Y))
+            rawZ.push(input.acceleration(Dimension.Z))
+            basic.pause(97)}
+        while (true) {
+            rawX.push(input.acceleration(Dimension.X))
+            rawY.push(input.acceleration(Dimension.Y))
+            rawZ.push(input.acceleration(Dimension.Z))
+            basic.pause(97)
+            current_activity = activities[predict(feature_package(rawX, rawY, rawZ))]
+            //let current_activity = activities[predict(feature_package(rawX, rawY, rawZ))]
+            // return current_activity
+            //basic.showString(current_activity, 1)
+            // ^ no need to show here
+            rawX.removeAt(0)
+            rawY.removeAt(0)
+            rawZ.removeAt(0)}}
+    )
+
     // collects first 0.1sec * 19 data points from start point
     //% block
-    export function startTracker(){
+    /*export function startTracker(){
         for (let index = 0; index < 19; index++) {
             rawX.push(input.acceleration(Dimension.X))
             rawY.push(input.acceleration(Dimension.Y))
             rawZ.push(input.acceleration(Dimension.Z))
             basic.pause(97)
         }
-    }
+    }*/
 
     //  every 0.1 sec: collect acceleration data, update
     //% block
     export function findActivity(): string {
-        rawX.push(input.acceleration(Dimension.X))
+        /*rawX.push(input.acceleration(Dimension.X))
         rawY.push(input.acceleration(Dimension.Y))
         rawZ.push(input.acceleration(Dimension.Z))
         basic.pause(97)
-        let current_activity = activities[predict(feature_package(rawX, rawY, rawZ))]
+        current_activity = activities[predict(feature_package(rawX, rawY, rawZ))]
+        //let current_activity = activities[predict(feature_package(rawX, rawY, rawZ))]*/
         return current_activity
         //basic.showString(current_activity, 1)
         // ^ no need to show here
-        rawX.removeAt(0)
+        /*rawX.removeAt(0)
         rawY.removeAt(0)
-        rawZ.removeAt(0)
+        rawZ.removeAt(0)*/
         //serial.writeLine(current_activity)
     }
 
     // block that shows string for 1 millisecond: if you use the default show string block it will display for ~1 second and cause a backlog of strings to display
     //% block
-    export function show(s: string){
-        basic.showString(s, 1)
+    export function show(s: string): void{
+        basic.showString(s, 1);
+    }
+
+    //% block
+    export function getActivityDictionary(): Array<string> {
+        return ['s','w','r'];
     }
 } 
 
