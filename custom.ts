@@ -7,11 +7,13 @@ namespace activityRecognition {
     let coef = [[0.09072921892541963, 0.02050763109394002, 0.07990760096870853, 0.1959510865053412, 0.24749407547432828, 0.08125397351231137, -0.15311007915439134, -0.18676970998309272, -0.10963787716854928, 0.26096017201491933, 0.6495797112134594, 0.14765281352724935], [0.9647705673104152, -0.9381255709889622, 1.0963808461538243, -0.5105358086653857, -2.8208343897965533, 2.733823393949729, -0.9638646413982466, -0.3980405455498639, -2.039661913627575, 4.249620325028033, 2.568703600692576, 2.0216968594194626], [-2.119320083729022, -4.14245613826354, 1.7671070112006362, -0.6863723259367873, -3.817945787910247, -0.42490535934352636, -0.8246324422987357, 0.7537638537456814, -0.44004469929569723, -0.16889468247695305, -5.910635423913789, -0.4925098534128196]]
     let k = [0.39686125762901153, -2.0798645104751996, -6.765924345356474]
     let activities = ["r", "s", "w"]
+    
     //  raw accelerometer data collection by timestamp (100ms)
     let rawX: number[] = []
     let rawY: number[] = []
     let rawZ: number[] = []
     let current_activity = "start"
+    
     //  define mathematical functions
     function average(list1: number[]): number {
         let sum = 0
@@ -117,6 +119,14 @@ namespace activityRecognition {
             rawY.removeAt(0)
             rawZ.removeAt(0)}}
     )
+
+    loops.everyInterval(1000, function () {
+        datalogger.log(datalogger.createCV("activity type", current_activity), datalogger.createCV("current activity level", activity_level))
+    })
+
+    datalogger.onLogFull(function () {
+        datalogger.deleteLog(datalogger.DeleteType.Full)
+    })
 
     //  every 0.1 sec: collect acceleration data, update
     //% block

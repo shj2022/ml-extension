@@ -1,9 +1,3 @@
-let activity_level = 0
-datalogger.onLogFull(function () {
-    datalogger.deleteLog(datalogger.DeleteType.Full)
-})
-// activity_tracker_on = false
-// datalogger.deleteLog()
 input.onButtonPressed(Button.A, function () {
     activityRecognition.show(activityRecognition.findActivity())
 })
@@ -13,11 +7,9 @@ input.onButtonPressed(Button.AB, function () {
 input.onButtonPressed(Button.B, function () {
     basic.showNumber(activity_level)
 })
-loops.everyInterval(10000, function () {
-    datalogger.log(datalogger.createCV("activity level", activity_level))
-})
+let activity_level = 0
+activity_level = 0
 basic.forever(function () {
-    datalogger.log(datalogger.createCV("activity", activityRecognition.findActivity()))
     if (activityRecognition.findActivity() == "s") {
         activity_level += 0.1
     }
