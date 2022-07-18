@@ -19,12 +19,12 @@ basic.forever(function () {
 ```
 
 ## Step 2
-The program continuously predicts the current activity for you and stores it in the ``||activityRecognition:find_activity||`` block. 
-In the ``||Activity Recognition||`` tab, you will
-
-We want the ``||variables: step||`` count to increase by 1 every time you take a step. To accurately do that, we will use the ``||moveSMART:acceleration_strength||`` value in the moveSMART tab.
+In the ``||activityRecognition:activityRecognition||`` tab, you will see the ``||activityRecognition:find_activity||`` block. 
+The program continuously predicts the current activity and stores it in that block for you: s for standing, w for walking, and r for running.
 
 ## Step 3
+We want the ``||variables: step||`` count to increase by 1 every time you take a step. To accurately do that, we will use the ``||moveSMART:acceleration_strength||`` value in the moveSMART tab.
+
 Use ``||logic: > ||`` to code a block that returns ``||logic: true||`` when ``||moveSMART:acceleration_strength||`` is bigger than 1.5.
 Hint: Here we have chosen the value 1.5 for you as a starting point. You will have a chance to change it later!
 ```blocks
