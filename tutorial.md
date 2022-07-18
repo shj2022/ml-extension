@@ -22,7 +22,7 @@ basic.forever(function () {
 In the ``||activityRecognition:activityRecognition||`` tab, you will see the ``||activityRecognition:find_activity||`` block. 
 The program continuously predicts the current activity and stores it in that block for you: s for standing, w for walking, and r for running.
 ```blocks
-activityRecognition.find_activity()
+custom.find_activity()
 ```
 
 
