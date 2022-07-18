@@ -19,7 +19,7 @@ basic.forever(function () {
 ```
 
 ## Step 2
-In the ``||activityRecognition:activityRecognition||`` tab, you will see the ``||activityRecognition:find_activity||`` block. 
+In the ``||custom:custom||`` tab, you will see the ``||custom:find_activity||`` block. 
 The program continuously predicts the current activity and stores it in that block for you: s for standing, w for walking, and r for running.
 ```blocks
 basic.show_string(custom.find_activity()){}
