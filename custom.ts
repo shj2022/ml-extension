@@ -121,19 +121,7 @@ namespace activityRecognition {
     //  every 0.1 sec: collect acceleration data, update
     //% block
     export function findActivity(): string {
-        /*rawX.push(input.acceleration(Dimension.X))
-        rawY.push(input.acceleration(Dimension.Y))
-        rawZ.push(input.acceleration(Dimension.Z))
-        basic.pause(97)
-        current_activity = activities[predict(feature_package(rawX, rawY, rawZ))]
-        //let current_activity = activities[predict(feature_package(rawX, rawY, rawZ))]*/
         return current_activity
-        //basic.showString(current_activity, 1)
-        // ^ no need to show here
-        /*rawX.removeAt(0)
-        rawY.removeAt(0)
-        rawZ.removeAt(0)*/
-        //serial.writeLine(current_activity)
     }
 
     // block that shows string for 1 millisecond: if you use the default show string block it will display for ~1 second and cause a backlog of strings to display
