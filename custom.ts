@@ -113,25 +113,10 @@ namespace activityRecognition {
             rawZ.push(input.acceleration(Dimension.Z))
             basic.pause(97)
             current_activity = activities[predict(feature_package(rawX, rawY, rawZ))]
-            //let current_activity = activities[predict(feature_package(rawX, rawY, rawZ))]
-            // return current_activity
-            //basic.showString(current_activity, 1)
-            // ^ no need to show here
             rawX.removeAt(0)
             rawY.removeAt(0)
             rawZ.removeAt(0)}}
     )
-
-    // collects first 0.1sec * 19 data points from start point
-    //% block
-    /*export function startTracker(){
-        for (let index = 0; index < 19; index++) {
-            rawX.push(input.acceleration(Dimension.X))
-            rawY.push(input.acceleration(Dimension.Y))
-            rawZ.push(input.acceleration(Dimension.Z))
-            basic.pause(97)
-        }
-    }*/
 
     //  every 0.1 sec: collect acceleration data, update
     //% block
@@ -155,11 +140,6 @@ namespace activityRecognition {
     //% block
     export function show(s: string): void{
         basic.showString(s, 1);
-    }
-
-    //% block
-    export function getActivityDictionary(): Array<string> {
-        return ['s','w','r'];
     }
 } 
 

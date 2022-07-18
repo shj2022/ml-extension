@@ -1,7 +1,13 @@
+datalogger.onLogFull(function () {
+    datalogger.deleteLog(datalogger.DeleteType.Fast)
+})
 // activity_tracker_on = false
 // datalogger.deleteLog()
 input.onButtonPressed(Button.A, function () {
     activityRecognition.show(activityRecognition.findActivity())
+})
+input.onButtonPressed(Button.AB, function () {
+    activity_level = 0
 })
 input.onButtonPressed(Button.B, function () {
     basic.showNumber(activity_level)
