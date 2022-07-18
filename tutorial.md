@@ -21,6 +21,10 @@ basic.forever(function () {
 ## Step 2
 In the ``||activityRecognition:activityRecognition||`` tab, you will see the ``||activityRecognition:find_activity||`` block. 
 The program continuously predicts the current activity and stores it in that block for you: s for standing, w for walking, and r for running.
+```blocks
+activityRecognition.find_activity()
+```
+
 
 ## Step 3
 We want the ``||variables: step||`` count to increase by 1 every time you take a step. To accurately do that, we will use the ``||moveSMART:acceleration_strength||`` value in the moveSMART tab.
